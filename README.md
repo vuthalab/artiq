@@ -1,7 +1,7 @@
 
-# ARTIQ (Advanced Real-Time Infrastructure for Quantum physics)
+# Python interface to ARTIQ (Advanced Real-Time Infrastructure for Quantum physics)
 
-## Useful Resources
+## Resources
 - Manual: https://m-labs.hk/artiq/manual/
 - Forum: https://forum.m-labs.hk/
 - Device Datasheets: https://m-labs.hk/experiment-control/sinara-core/
@@ -9,7 +9,7 @@
 - Birmingham: https://github.com/cnourshargh/Bham-ARTIQ-examples 
 (Repository of basic ARTIQ code from the University of Birmingham. Much of our testing code is based upon Birmingham's code)
 
-## Our System
+## System configuration
 - Operating System: Ubuntu 18.04.6
 - FPGA: Sinara 1124 Carrier "Kasli"
 - TTL: 2x Sinara 2128 (SMA) 8-Channel isolated TTL cards
@@ -18,7 +18,7 @@
 - DAC: Sinara 5432 DAC "Zotino"
 - ARTIQ: Release-7
 
-## Installing ARITQ
+## Installing ARTIQ
 The manual recommends that you use the ARTIQ on Linux and using the Nix virtual environment. We have found Nix to be rather complicated, and that Conda works fine. To install the virtual environment, first make sure you have Conda installed, then, in terminal, run
 ```console
 conda config --prepend channels https://conda.m-labs.hk/artiq
@@ -38,7 +38,7 @@ When you download ARTIQ you are downloading multiple things:
 
 We found this ARTIQ folder in ~/anaconda3/envs/artiq7/lib/python3.10/site-packages. 
 
-The ARTIQ Language is the device-unspecific functionality of the ARTIQ. It includes the classes that our experiments will inherit from as well as the basic commands we can use (for example, run(), build(), and with parallel). 
+The ARTIQ Language is the device-independent functionality of the ARTIQ. It includes the classes that our experiments will inherit from as well as the basic commands we can use (for example, run(), build(), and with parallel). 
 
 The ARTIQ Devices are all of the header files for the devices we have on the ARTIQ. This is all of the low level code that communicates with the device. The device's header file is the best place to see what you can do with a device. Along with the devices is a device database, a file called device\_db<span>.py. You need to make this file, which lists the IP address of the core device and all of the details of each device. An example of this can be found at ~/artiq/examples/kasli. Use this file, altering what you need to set up your device.
 
@@ -87,4 +87,3 @@ Below is the list of files we wrote to test the ARTIQ and learn how to use it:
 11) set\_attr\_device\_name.py an example of how we may rename a device
 12) artiq_sequence.py a generic script that allows us to use as many TTL and DDS channels as we want on some predetermined parameters
 13) artiq\_sequence\_fixed_devices.py an alternative to artiq\_sequence.py for a fixed number of devices (never tested, you should just use artiq\_sequence.py)
-
