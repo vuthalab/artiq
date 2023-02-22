@@ -68,14 +68,14 @@ class Name(EnvExperiment): #creates your sequence, named "Name"
 ```
 Then, within the `run` method, after initializing your device, you can specify what you wish the device to do. To see a simple example of how this might look, see dds<span>.py, ttl_out.py, or dac<span>.py.
 
-## Miscellaneous Facts
+## Miscellaneous notes
 1. The modes (input and output) of the TTLs are set on the boards. To change them, you must take out the board, locate the switch, and flip it. The TTLs are set in blocks of four. 
 2. AD9910 is capable of amplitude and frequency modulation (independently and at the same time). AD9912 cannot do either. You can use a simple form of modulation (i.e. a loop where you iterate through amplitude / frequency values) if the step size is large enough. If you want the steps between amplitudes or frequencies to be small you must write the data to RAM beforehand. 
 
-## File Directory
+## Directory
 Below is the list of files we wrote to test the ARTIQ and learn how to use it:
-1) ttl_out.py sends pulses out of the TTLs
-2) ttl_in.py reads in voltages from the TTLs
+1) ttl_out.py sends out TTL pulses
+2) ttl_in.py reads in TTL signals 
 3) dds<span>.py sends a simple sine wave out of the DDS
 4) dds_pulse.py sends a signal out of the DDS, turns it off, and turns it back on
 5) dds_modulated.py code to modulate (using RAM), the amplitude and/or frequency of the AD9910
